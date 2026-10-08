@@ -1,15 +1,12 @@
 name: Build & Push Site Image
 
+# 2026-10-08: se quitó push (minutos de Actions agotados).
+# No hay test: publica la imagen en GHCR. Siguen release y workflow_dispatch.
+# No se copió a Cloud Build: haría falta el token del registry y gastaría.
 on:
-  push:
-    branches: [main]
-    paths:
-      - "site/**"
-      - "docs/**"
-      - ".github/workflows/site.yml"
+  workflow_dispatch:
   release:
     types: [published]
-  workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io
